@@ -1,0 +1,54 @@
+    <div class="slide bg-offwhite" data-title="Custom Skills">
+      <div class="slide-header">
+        <div class="slide-label label-pine">Deep Dive</div>
+        <h2 class="slide-title">Building Custom Skills</h2>
+        <p class="slide-subtitle">Teach Claude new capabilities with a single markdown file.</p>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-blue"><svg viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18" fill="#0061FF"/></svg></div>
+              <h3>SKILL.md</h3>
+              <p>Entry point for every skill. YAML frontmatter controls behavior, markdown body has the instructions Claude follows.</p>
+            </div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-cyan"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" fill="#02043B" rx="1"/></svg></div>
+              <h3>Where They Live</h3>
+              <p>Project: <code style="background:rgba(0,97,255,0.05);padding:1px 5px;border-radius:3px;font-size:12px">.claude/skills/</code> (shared via git). Personal: <code style="background:rgba(0,97,255,0.05);padding:1px 5px;border-radius:3px;font-size:12px">~/.claude/skills/</code> (all your projects).</p>
+            </div>
+            <div class="card">
+              <div class="card-icon icon-pine"><svg viewBox="0 0 20 20"><polygon points="10,1 19,7.5 16,18 4,18 1,7.5" fill="#00434C"/></svg></div>
+              <h3>Key Options</h3>
+              <p><strong>disable-model-invocation</strong> for manual-only. <strong>context: fork</strong> for subagent. <strong>paths</strong> to scope to files. <strong>allowed-tools</strong> to restrict access.</p>
+            </div>
+          </div>
+          <div>
+            <div class="code-block">
+<span class="cm"># .claude/skills/deploy/SKILL.md</span><br>
+---<br>
+<span class="kw">name:</span> deploy<br>
+<span class="kw">description:</span> Deploy to staging<br>
+<span class="kw">disable-model-invocation:</span> <span class="str">true</span><br>
+<span class="kw">allowed-tools:</span> Bash(npm *)<br>
+---<br>
+<br>
+Deploy <span class="str">$ARGUMENTS</span> to staging:<br>
+<br>
+1. Run the test suite<br>
+2. Build the application<br>
+3. Push to deployment target<br>
+4. Verify health checks pass<br>
+<br>
+<span class="cm"># Dynamic context injection</span><br>
+<span class="cm"># Shell runs before prompt</span><br>
+Branch: <span class="str">!`git branch --show`</span><br>
+Commit: <span class="str">!`git log -1 --oneline`</span>
+            </div>
+            <div class="hint-bar" style="margin-top:10px">
+              Can include supporting files: templates, scripts. &middot; <a href="https://code.claude.com/docs/en/skills" target="_blank" style="color:var(--electric-blue);text-decoration:none;font-weight:600">Full docs &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

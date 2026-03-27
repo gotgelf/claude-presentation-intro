@@ -1,0 +1,50 @@
+    <div class="slide bg-offwhite" data-title="Browser Automation">
+      <div class="slide-header">
+        <div class="slide-label label-blue">Beta</div>
+        <h2 class="slide-title">Browser Automation with Chrome</h2>
+        <p class="slide-subtitle">Build your code, then test and debug in the browser without switching contexts.</p>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-blue"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#0061FF"/></svg></div>
+              <h3>How It Works</h3>
+              <p>Claude in Chrome extension connects via MCP. Opens new tabs, shares your login state. Start with <code style="background:rgba(0,97,255,0.05);padding:1px 5px;border-radius:3px;font-size:12px">claude --chrome</code> or <code style="background:rgba(0,97,255,0.05);padding:1px 5px;border-radius:3px;font-size:12px">@browser</code> in VS Code.</p>
+            </div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-cyan"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" fill="#02043B" rx="1"/></svg></div>
+              <h3>What You Can Do</h3>
+              <p>Test web apps, read console errors, fill forms, extract data, draft in Google Docs, automate multi-site workflows, record GIFs.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon icon-pine"><svg viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18" fill="#00434C"/></svg></div>
+              <h3>Authenticated Access</h3>
+              <p>Works with any site you're logged into &mdash; Gmail, Notion, Jira, your CRM. No API keys or OAuth setup needed.</p>
+            </div>
+          </div>
+          <div>
+            <div class="code-block">
+<span class="cm"># Test local app</span><br>
+<span class="pr">&gt;</span> Open localhost:3000 and test<br>
+&nbsp;&nbsp;the login flow<br><br>
+<span class="dm">&#9615; Creating new tab...</span><br>
+<span class="dm">&#9615; Navigating to localhost:3000</span><br>
+<span class="dm">&#9615; Filling email field</span><br>
+<span class="dm">&#9615; Clicking "Sign In"</span><br>
+<span class="dm">&#9615; Taking screenshot...</span><br><br>
+<span style="color:white">Login successful.</span><br><br>
+<span class="cm"># Debug with console</span><br>
+<span class="pr">&gt;</span> Check the console for errors<br>
+&nbsp;&nbsp;when the dashboard loads<br><br>
+<span class="cm"># Record a demo</span><br>
+<span class="pr">&gt;</span> Record a GIF of the checkout<br>
+&nbsp;&nbsp;flow from cart to confirmation
+            </div>
+            <div class="hint-bar" style="margin-top:10px">
+              Requires <strong>Claude in Chrome</strong> extension v1.0.36+. &middot; <a href="https://code.claude.com/docs/en/chrome" target="_blank" style="color:var(--electric-blue);text-decoration:none;font-weight:600">Full docs &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

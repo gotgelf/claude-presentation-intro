@@ -1,0 +1,53 @@
+    <div class="slide bg-offwhite" data-title="MCP Integrations">
+      <div class="slide-header">
+        <div class="slide-label label-blue">Integrations</div>
+        <h2 class="slide-title">MCP &mdash; Connect Your Tools</h2>
+        <p class="slide-subtitle">Model Context Protocol lets Claude work with external services directly.</p>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-blue"><svg viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18" fill="#0061FF"/></svg></div>
+              <h3>Figma</h3>
+              <p>Read designs, inspect components, extract styles. Build UI directly from Figma mocks without manual spec translation.</p>
+            </div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-cyan"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" fill="#02043B" rx="1"/></svg></div>
+              <h3>Shortcut</h3>
+              <p>Read stories, create tasks, update status. Link code changes to tickets and automate project tracking.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon icon-pine"><svg viewBox="0 0 20 20"><polygon points="10,1 17.66,5.5 17.66,14.5 10,19 2.34,14.5 2.34,5.5" fill="#00434C"/></svg></div>
+              <h3>Slack</h3>
+              <p>Read channels, search messages, send updates. Stay connected with your team without leaving the terminal.</p>
+            </div>
+          </div>
+          <div>
+            <div class="code-block">
+<span class="cm"># Add an MCP server</span><br>
+<span class="pr">$</span> claude mcp add figma \<br>
+&nbsp;&nbsp;--transport http \<br>
+&nbsp;&nbsp;<span class="str">https://figma.com/mcp</span><br>
+<br>
+<span class="pr">$</span> claude mcp add shortcut \<br>
+&nbsp;&nbsp;--transport http \<br>
+&nbsp;&nbsp;<span class="str">https://shortcut.com/mcp</span><br>
+<br>
+<span class="cm"># Or configure in .mcp.json</span><br>
+{<br>
+&nbsp;&nbsp;<span class="kw">"mcpServers"</span>: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"slack"</span>: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"type"</span>: <span class="str">"http"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"url"</span>: <span class="str">"https://slack.com/mcp"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;}<br>
+}
+            </div>
+            <div class="hint-bar" style="margin-top:10px">
+              Run <strong>/mcp</strong> to manage servers. 50+ integrations available. &middot; <a href="https://code.claude.com/docs/en/mcp" target="_blank" style="color:var(--electric-blue);text-decoration:none;font-weight:600">Full docs &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

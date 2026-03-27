@@ -1,0 +1,49 @@
+    <div class="slide bg-offwhite particles-blue-tr" data-title="Hooks">
+      <div class="slide-header">
+        <div class="slide-label label-pine">Automation</div>
+        <h2 class="slide-title">Hooks &mdash; Automate Everything</h2>
+        <p class="slide-subtitle">Shell commands that run automatically at key points in Claude's lifecycle.</p>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-blue"><svg viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18" fill="#0061FF"/></svg></div>
+              <h3>What They Do</h3>
+              <p>Deterministic actions that always happen &mdash; not relying on Claude to choose. Format code after edits, block protected files, send notifications, validate commands.</p>
+            </div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-cyan"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" fill="#02043B" rx="1"/></svg></div>
+              <h3>Key Events</h3>
+              <p><strong>PreToolUse</strong> (block/allow), <strong>PostToolUse</strong> (react to changes), <strong>Stop</strong> (verify completion), <strong>Notification</strong> (desktop alerts), <strong>SessionStart</strong> (inject context).</p>
+            </div>
+            <div class="card">
+              <div class="card-icon icon-pine"><svg viewBox="0 0 20 20"><polygon points="10,1 19,7.5 16,18 4,18 1,7.5" fill="#00434C"/></svg></div>
+              <h3>Three Types</h3>
+              <p><strong>command</strong> &mdash; run a shell script. <strong>prompt</strong> &mdash; LLM yes/no judgment. <strong>agent</strong> &mdash; subagent that reads files and runs tools to verify.</p>
+            </div>
+          </div>
+          <div>
+            <div class="code-block">
+<span class="cm"># settings.json &mdash; auto-format after edits</span><br>
+{<br>
+&nbsp;&nbsp;<span class="kw">"hooks"</span>: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"PostToolUse"</span>: [{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"matcher"</span>: <span class="str">"Edit|Write"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"hooks"</span>: [{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"type"</span>: <span class="str">"command"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"command"</span>: <span class="str">"jq -r<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.tool_input.file_path'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| xargs prettier --write"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}]<br>
+&nbsp;&nbsp;}<br>
+}
+            </div>
+            <div class="hint-bar" style="margin-top:10px">
+              Configure in <strong>~/.claude/settings.json</strong> (global) or <strong>.claude/settings.json</strong> (project). Run <strong>/hooks</strong> to browse. &middot; <a href="https://code.claude.com/docs/en/hooks-guide" target="_blank" style="color:var(--electric-blue);text-decoration:none;font-weight:600">Full docs &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

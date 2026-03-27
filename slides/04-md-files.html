@@ -1,0 +1,56 @@
+    <div class="slide bg-white particles-blue-tr" data-title="Setting Up Claude">
+      <div class="slide-header">
+        <div class="slide-label label-pine">Setup</div>
+        <h2 class="slide-title">Setting Up Claude</h2>
+        <p class="slide-subtitle">Project instructions, rules, and settings.</p>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-green"><svg viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18" fill="#02043B"/></svg></div>
+              <h3>CLAUDE.md</h3>
+              <p>Team-shared project instructions. Coding standards, build commands, architecture. Loaded every session. Use <code style="background:rgba(0,97,255,0.05);padding:1px 5px;border-radius:3px;font-size:12px">@path</code> to import other files.</p>
+            </div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-cyan"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" fill="#02043B" rx="1"/></svg></div>
+              <h3>settings.json</h3>
+              <p>Configure permissions, environment variables, and tool behavior.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon icon-pine"><svg viewBox="0 0 20 20"><polygon points="10,1 19,7.5 16,18 4,18 1,7.5" fill="#00434C"/></svg></div>
+              <h3>.claude/rules/</h3>
+              <p>Modular rules per topic. Scoped to specific file paths &mdash; only loaded when Claude works with matching files, reducing noise and saving context.</p>
+            </div>
+          </div>
+          <div>
+            <div class="code-block">
+              <span class="cm"># CLAUDE.md</span><br>
+              <span class="kw">## Tech Stack</span><br>
+              Go 1.22, React 18, PostgreSQL<br>
+              <span class="kw">## Commands</span><br>
+              <span class="str">make test</span> &mdash; run all tests<br>
+              <span class="str">make lint</span> &mdash; check code style<br>
+              See <span class="str">@docs/architecture.md</span> for details<br><br>
+              <span class="cm"># .claude/rules/api-design.md</span><br>
+              ---<br>
+              <span class="kw">paths:</span><br>
+              &nbsp;&nbsp;- <span class="str">"src/api/**/*.ts"</span><br>
+              ---<br>
+              All endpoints must include validation<br>
+              Use standard error response format
+            </div>
+            <div class="flow" style="margin-top:14px;padding:12px 0;gap:8px;">
+              <div class="flow-node-sm"><strong>Managed Policy</strong><br><span>org-wide</span></div>
+              <div class="flow-arrow-sm">&#8594;</div>
+              <div class="flow-node-sm"><strong>Project</strong> .claude/<br><span>team-shared</span></div>
+              <div class="flow-arrow-sm">&#8594;</div>
+              <div class="flow-node-sm"><strong>User</strong> ~/.claude/<br><span>personal</span></div>
+            </div>
+            <div class="hint-bar" style="margin-top:6px;">
+              Tip: Run <strong>/init</strong> to auto-generate your CLAUDE.md. &middot; <a href="https://code.claude.com/docs/en/memory#claude-md-files" target="_blank" style="color:var(--electric-blue);text-decoration:none;font-weight:600">Full docs &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

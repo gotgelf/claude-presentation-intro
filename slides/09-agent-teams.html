@@ -1,0 +1,28 @@
+    <div class="slide bg-white particles-blue-both" data-title="Agent Teams">
+      <div class="slide-header">
+        <div class="slide-label label-blue">Experimental</div>
+        <h2 class="slide-title">Agent Teams &mdash; Coordinated Collaboration</h2>
+        <p class="slide-subtitle">Multiple Claude instances working together with shared tasks and direct messaging.</p>
+      </div>
+      <div class="slide-body">
+        <div class="flow" style="margin-bottom:20px">
+          <div class="flow-node hl">Team Lead</div>
+          <div class="flow-arrow">&#10140;</div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div class="flow-node">Security reviewer</div>
+            <div class="flow-node">Performance reviewer</div>
+            <div class="flow-node">Test coverage reviewer</div>
+          </div>
+          <div class="flow-arrow">&#8596;</div>
+          <div class="flow-node hl">Shared Task List</div>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="card-icon icon-blue"><svg viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18" fill="#0061FF"/></svg></div><h3>How It Differs</h3><p>Unlike subagents, teammates <strong>message each other directly</strong>, share a task list, and self-coordinate. Each is a full independent Claude session.</p></div>
+          <div class="card"><div class="card-icon icon-green"><svg viewBox="0 0 20 20"><polygon points="10,1 19,7.5 16,18 4,18 1,7.5" fill="#02043B"/></svg></div><h3>Best For</h3><p>Parallel code review, competing hypotheses debugging, cross-layer changes (frontend + backend + tests), research from multiple angles.</p></div>
+          <div class="card"><div class="card-icon icon-cyan"><svg viewBox="0 0 20 20"><polygon points="10,1 17.66,5.5 17.66,14.5 10,19 2.34,14.5 2.34,5.5" fill="#0061FF"/></svg></div><h3>Good to Know</h3><p>Experimental feature. Higher token cost (each teammate has own context). Start with 3-5 teammates. Avoid same-file edits across teammates.</p></div>
+        </div>
+        <div class="hint-bar">
+          Enable with <strong>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</strong> in settings. &middot; <a href="https://code.claude.com/docs/en/agent-teams" target="_blank" style="color:var(--electric-blue);text-decoration:none;font-weight:600">Full docs &rarr;</a>
+        </div>
+      </div>
+    </div>
