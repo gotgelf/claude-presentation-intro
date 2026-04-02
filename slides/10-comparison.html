@@ -1,0 +1,71 @@
+    <div class="slide bg-white particles-blue-both" data-title="Quick Reference">
+      <div class="slide-header">
+        <div class="slide-label label-blue">Reference</div>
+        <h2 class="slide-title">When to Use What</h2>
+        <p class="slide-subtitle">Side-by-side comparison &mdash; triggers, config, and sweet spots.</p>
+      </div>
+      <div class="slide-body">
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Triggers / Runs</th>
+              <th>Config Location</th>
+              <th>Sweet Spot</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="cmp-alt">
+              <td class="cmp-name">CLAUDE.md</td>
+              <td>Auto-loaded at session start; survives <code class="cmp-code">/compact</code></td>
+              <td><code class="cmp-code">./CLAUDE.md</code> &middot; <code class="cmp-code">.claude/rules/</code></td>
+              <td>Team conventions, build commands, architectural decisions</td>
+              <td class="cmp-flag"><span class="cmp-flag-no">Static</span></td>
+            </tr>
+            <tr>
+              <td class="cmp-name">Hooks</td>
+              <td>25 lifecycle events: <code class="cmp-code">PreToolUse</code>, <code class="cmp-code">PostToolUse</code>, <code class="cmp-code">Stop</code>, etc.</td>
+              <td><code class="cmp-code">settings.json</code> (user, project, or managed)</td>
+              <td>Auto-format on save, block dangerous commands, notify on completion</td>
+              <td class="cmp-flag"><span class="cmp-flag-no">Deterministic</span></td>
+            </tr>
+            <tr class="cmp-alt">
+              <td class="cmp-name">MCP</td>
+              <td>Background process; Claude calls tools as <code class="cmp-code">mcp__server__tool</code></td>
+              <td><code class="cmp-code">.mcp.json</code> &middot; <code class="cmp-code">claude mcp add</code></td>
+              <td>Figma, Slack, databases, browsers &mdash; any external service</td>
+              <td class="cmp-flag"><span class="cmp-flag-yes">AI-driven</span></td>
+            </tr>
+            <tr>
+              <td class="cmp-name">Skills</td>
+              <td>Via <code class="cmp-code">/command</code> or auto-matched from description</td>
+              <td><code class="cmp-code">.claude/skills/*/SKILL.md</code></td>
+              <td>Repeatable workflows &mdash; deploy, review, debug, batch ops</td>
+              <td class="cmp-flag"><span class="cmp-flag-yes">AI-driven</span></td>
+            </tr>
+            <tr class="cmp-alt">
+              <td class="cmp-name">Sub-agents</td>
+              <td>On demand; parent dispatches, child returns result</td>
+              <td><code class="cmp-code">.claude/agents/*.md</code> &middot; <code class="cmp-code">/agents</code></td>
+              <td>Parallel research, isolated test runs, scoped tool access</td>
+              <td class="cmp-flag"><span class="cmp-flag-yes">AI-driven</span></td>
+            </tr>
+            <tr>
+              <td class="cmp-name">Agent Teams</td>
+              <td>Self-coordinating via shared task list &amp; direct messages</td>
+              <td>Env: <code class="cmp-code">CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</code></td>
+              <td>Cross-layer changes, competing hypotheses, multi-angle review</td>
+              <td class="cmp-flag"><span class="cmp-flag-yes">AI-driven</span> <span class="cmp-flag-note">(experimental)</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pro-tip">
+          <div class="pro-tip-icon"><svg viewBox="0 0 28 28"><polygon points="14,2 26,26 2,26" fill="#CCF87D"/></svg></div>
+          <div>
+            <div class="pro-tip-title">Decision rule</div>
+            <div class="pro-tip-text">Start with CLAUDE.md. Add hooks for guardrails. Reach for skills when you repeat a workflow. Use MCP for external data. Escalate to sub-agents for parallelism, and teams only for true multi-track coordination. Package as a plugin when you need to share.</div>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,54 @@
+    <div class="slide bg-white particles-blue-both" data-title="Plugins">
+      <div class="slide-header">
+        <div class="slide-label label-blue">Distribution</div>
+        <h2 class="slide-title">Plugins &mdash; Package &amp; Share</h2>
+        <p class="slide-subtitle">Bundle skills, agents, hooks, MCP, and LSP into installable, versioned packages.</p>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-blue"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="2" fill="#0061FF"/></svg></div>
+              <h3>Plugin Structure</h3>
+              <p>A directory with a manifest and any combination of components. Skills are namespaced: <code class="cmp-code">/plugin:skill</code>.</p>
+            </div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-cyan"><svg viewBox="0 0 20 20"><polygon points="10,1 17.66,5.5 17.66,14.5 10,19 2.34,14.5 2.34,5.5" fill="#00C5E7"/></svg></div>
+              <h3>Official Marketplace</h3>
+              <p>Built-in catalog with ready-to-use plugins: <strong>github</strong>, <strong>figma</strong>, <strong>slack</strong>, <strong>linear</strong>, <strong>sentry</strong>, <strong>typescript-lsp</strong>, <strong>commit-commands</strong>, and more.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon icon-pine"><svg viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18" fill="#00434C"/></svg></div>
+              <h3>Standalone &rarr; Plugin</h3>
+              <p>Start with <code class="cmp-code">.claude/</code> for quick iteration. Convert to a plugin when you are ready to share with the team or community.</p>
+            </div>
+          </div>
+          <div>
+            <div class="code-block">
+<span class="cm"># Plugin directory structure</span><br>
+my-plugin/<br>
+&nbsp;&nbsp;<span class="kw">.claude-plugin/</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;plugin.json&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># manifest</span><br>
+&nbsp;&nbsp;<span class="kw">skills/</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># SKILL.md files</span><br>
+&nbsp;&nbsp;<span class="kw">agents/</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># agent definitions</span><br>
+&nbsp;&nbsp;<span class="kw">hooks/</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># hooks.json</span><br>
+&nbsp;&nbsp;<span class="kw">.mcp.json</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># MCP servers</span><br>
+&nbsp;&nbsp;<span class="kw">.lsp.json</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># LSP servers</span><br>
+<br>
+<span class="cm"># Install from marketplace</span><br>
+<span class="pr">&gt;</span> /plugin install github@claude-plugins-official<br>
+<br>
+<span class="cm"># Test locally during development</span><br>
+<span class="pr">$</span> claude --plugin-dir ./my-plugin<br>
+<br>
+<span class="cm"># Browse &amp; manage</span><br>
+<span class="pr">&gt;</span> /plugin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># open plugin manager</span><br>
+<span class="pr">&gt;</span> /reload-plugins&nbsp;&nbsp;<span class="cm"># hot-reload changes</span>
+            </div>
+            <div class="hint-bar" style="margin-top:10px">
+              <a href="https://code.claude.com/docs/en/plugins" target="_blank" class="hint-link">Full docs &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

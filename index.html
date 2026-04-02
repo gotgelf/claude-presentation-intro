@@ -308,6 +308,43 @@ body {
 /* Hint bar */
 .hint-bar { margin-top:18px; font-size:12px; color:rgba(2,4,59,0.3); padding:0 4px; }
 .hint-bar strong { font-weight:600; color:rgba(2,4,59,0.5); }
+.hint-link { color:var(--electric-blue); text-decoration:none; font-weight:600; }
+
+/* Extensibility spectrum */
+/* Spectrum: labels row */
+.spectrum-labels { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom:16px; }
+.spectrum-label { font-family:'Syne',sans-serif; font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:2px; padding-bottom:8px; border-bottom:2px solid; }
+.spectrum-label-blue { color:var(--electric-blue); border-color:var(--electric-blue); }
+.spectrum-label-cyan { color:var(--warm-cyan); border-color:var(--warm-cyan); }
+.spectrum-label-navy { color:var(--navy); border-color:var(--navy); }
+/* Spectrum: card rows */
+.spectrum-row { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:12px; align-items:stretch; margin-bottom:12px; }
+.spectrum-card { border-radius:12px; padding:18px 20px; border:1px solid rgba(2,4,59,0.06); transition:all 0.25s; display:flex; gap:14px; align-items:flex-start; }
+.spectrum-card:hover { border-color:rgba(0,97,255,0.15); transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,97,255,0.06); }
+.slide.bg-offwhite .spectrum-card { background:var(--white); }
+.slide.bg-white .spectrum-card { background:var(--off-white); }
+.spectrum-card-icon { width:36px; height:36px; border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.spectrum-card-body h3 { font-family:'Syne',sans-serif; font-weight:700; font-size:15px; color:var(--navy); margin-bottom:4px; }
+.spectrum-card-body p { font-size:13px; font-weight:300; color:rgba(2,4,59,0.5); line-height:1.45; }
+.spectrum-card-body .spectrum-config { font-family:'Courier New',monospace; font-size:11px; color:var(--electric-blue); margin-top:6px; display:inline-block; background:rgba(0,97,255,0.05); padding:2px 8px; border-radius:4px; }
+.spectrum-tag { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; border-radius:4px; padding:2px 7px; display:inline-block; margin-top:6px; }
+.spectrum-tag-ai { background:rgba(0,97,255,0.08); color:var(--electric-blue); }
+.spectrum-tag-det { background:rgba(0,67,76,0.06); color:var(--pine-green); }
+.spectrum-arrow { display:flex; align-items:center; justify-content:center; color:var(--electric-blue); font-size:24px; flex-shrink:0; opacity:0.3; }
+
+/* Comparison table */
+.cmp-table { width:100%; border-collapse:separate; border-spacing:0; font-size:13px; line-height:1.45; }
+.cmp-table th { text-align:left; padding:10px 14px; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:2px; color:var(--electric-blue); border-bottom:2px solid var(--electric-blue); }
+.cmp-table th:last-child { text-align:center; }
+.cmp-table td { padding:10px 14px; border-bottom:1px solid rgba(2,4,59,0.06); font-size:13px; }
+.cmp-table tr:last-child td { border-bottom:none; }
+.cmp-table tr.cmp-alt { background:rgba(0,97,255,0.03); }
+.cmp-table .cmp-name { font-weight:700; white-space:nowrap; color:var(--navy); }
+.cmp-table .cmp-flag { text-align:center; }
+.cmp-flag-yes { color:var(--electric-blue); font-weight:700; }
+.cmp-flag-no { color:var(--pine-green); font-weight:700; }
+.cmp-flag-note { opacity:0.4; font-size:11px; }
+.cmp-code { background:rgba(0,97,255,0.05); padding:1px 5px; border-radius:3px; font-size:11px; font-family:'Courier New',monospace; }
 
 /* Q&A / Thank you slide */
 .qa-slide { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:480px; text-align:center; padding:40px 52px; }
@@ -397,7 +434,7 @@ body {
   <div class="topbar-nav">
     <a href="claude-code-presentation.pdf" download class="download-btn" title="Download PDF">&#8595; PDF</a>
     <button id="prevBtn" onclick="navigate(-1)" disabled>&#8592;</button>
-    <span class="slide-counter" id="counter">1 / 11</span>
+    <span class="slide-counter" id="counter">1 / 13</span>
     <button id="nextBtn" onclick="navigate(1)">&#8594;</button>
   </div>
 </div>
@@ -516,6 +553,56 @@ body {
             </div>
             <div class="hint-bar" style="margin-top:6px;">
               Tip: Run <strong>/init</strong> to auto-generate your CLAUDE.md. &middot; <a href="https://code.claude.com/docs/en/memory#claude-md-files" target="_blank" style="color:var(--electric-blue);text-decoration:none;font-weight:600">Full docs &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide bg-offwhite particles-blue-tr" data-title="Hooks">
+      <div class="slide-header">
+        <div class="slide-label label-pine">Automation</div>
+        <h2 class="slide-title">Hooks &mdash; Automate Everything</h2>
+        <p class="slide-subtitle">Shell commands that run automatically at key points in Claude's lifecycle.</p>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-blue"><svg viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18" fill="#0061FF"/></svg></div>
+              <h3>What They Do</h3>
+              <p>Deterministic actions that always happen &mdash; not relying on Claude to choose. Format code after edits, block protected files, send notifications, validate commands.</p>
+            </div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-cyan"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" fill="#02043B" rx="1"/></svg></div>
+              <h3>Key Events</h3>
+              <p><strong>PreToolUse</strong> (block/allow), <strong>PostToolUse</strong> (react to changes), <strong>Stop</strong> (verify completion), <strong>Notification</strong> (desktop alerts), <strong>SessionStart</strong> (inject context).</p>
+            </div>
+            <div class="card">
+              <div class="card-icon icon-pine"><svg viewBox="0 0 20 20"><polygon points="10,1 19,7.5 16,18 4,18 1,7.5" fill="#00434C"/></svg></div>
+              <h3>Three Types</h3>
+              <p><strong>command</strong> &mdash; run a shell script. <strong>prompt</strong> &mdash; LLM yes/no judgment. <strong>agent</strong> &mdash; subagent that reads files and runs tools to verify.</p>
+            </div>
+          </div>
+          <div>
+            <div class="code-block">
+<span class="cm"># settings.json &mdash; auto-format after edits</span><br>
+{<br>
+&nbsp;&nbsp;<span class="kw">"hooks"</span>: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"PostToolUse"</span>: [{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"matcher"</span>: <span class="str">"Edit|Write"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"hooks"</span>: [{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"type"</span>: <span class="str">"command"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"command"</span>: <span class="str">"jq -r<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.tool_input.file_path'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| xargs prettier --write"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}]<br>
+&nbsp;&nbsp;}<br>
+}
+            </div>
+            <div class="hint-bar" style="margin-top:10px">
+              Configure in <strong>~/.claude/settings.json</strong> (global) or <strong>.claude/settings.json</strong> (project). Run <strong>/hooks</strong> to browse. &middot; <a href="https://code.claude.com/docs/en/hooks-guide" target="_blank" style="color:var(--electric-blue);text-decoration:none;font-weight:600">Full docs &rarr;</a>
             </div>
           </div>
         </div>
@@ -688,56 +775,6 @@ Commit: <span class="str">!`git log -1 --oneline`</span>
       </div>
     </div>
 
-    <div class="slide bg-offwhite particles-blue-tr" data-title="Hooks">
-      <div class="slide-header">
-        <div class="slide-label label-pine">Automation</div>
-        <h2 class="slide-title">Hooks &mdash; Automate Everything</h2>
-        <p class="slide-subtitle">Shell commands that run automatically at key points in Claude's lifecycle.</p>
-      </div>
-      <div class="slide-body">
-        <div class="grid-2">
-          <div>
-            <div class="card" style="margin-bottom:12px">
-              <div class="card-icon icon-blue"><svg viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18" fill="#0061FF"/></svg></div>
-              <h3>What They Do</h3>
-              <p>Deterministic actions that always happen &mdash; not relying on Claude to choose. Format code after edits, block protected files, send notifications, validate commands.</p>
-            </div>
-            <div class="card" style="margin-bottom:12px">
-              <div class="card-icon icon-cyan"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" fill="#02043B" rx="1"/></svg></div>
-              <h3>Key Events</h3>
-              <p><strong>PreToolUse</strong> (block/allow), <strong>PostToolUse</strong> (react to changes), <strong>Stop</strong> (verify completion), <strong>Notification</strong> (desktop alerts), <strong>SessionStart</strong> (inject context).</p>
-            </div>
-            <div class="card">
-              <div class="card-icon icon-pine"><svg viewBox="0 0 20 20"><polygon points="10,1 19,7.5 16,18 4,18 1,7.5" fill="#00434C"/></svg></div>
-              <h3>Three Types</h3>
-              <p><strong>command</strong> &mdash; run a shell script. <strong>prompt</strong> &mdash; LLM yes/no judgment. <strong>agent</strong> &mdash; subagent that reads files and runs tools to verify.</p>
-            </div>
-          </div>
-          <div>
-            <div class="code-block">
-<span class="cm"># settings.json &mdash; auto-format after edits</span><br>
-{<br>
-&nbsp;&nbsp;<span class="kw">"hooks"</span>: {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"PostToolUse"</span>: [{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"matcher"</span>: <span class="str">"Edit|Write"</span>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"hooks"</span>: [{<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"type"</span>: <span class="str">"command"</span>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">"command"</span>: <span class="str">"jq -r<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.tool_input.file_path'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| xargs prettier --write"</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}]<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}]<br>
-&nbsp;&nbsp;}<br>
-}
-            </div>
-            <div class="hint-bar" style="margin-top:10px">
-              Configure in <strong>~/.claude/settings.json</strong> (global) or <strong>.claude/settings.json</strong> (project). Run <strong>/hooks</strong> to browse. &middot; <a href="https://code.claude.com/docs/en/hooks-guide" target="_blank" style="color:var(--electric-blue);text-decoration:none;font-weight:600">Full docs &rarr;</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="slide bg-white particles-blue-both" data-title="Agent Teams">
       <div class="slide-header">
         <div class="slide-label label-blue">Experimental</div>
@@ -763,6 +800,145 @@ Commit: <span class="str">!`git log -1 --oneline`</span>
         </div>
         <div class="hint-bar">
           Enable with <strong>CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1</strong> in settings. &middot; <a href="https://code.claude.com/docs/en/agent-teams" target="_blank" style="color:var(--electric-blue);text-decoration:none;font-weight:600">Full docs &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide bg-white particles-blue-both" data-title="Plugins">
+      <div class="slide-header">
+        <div class="slide-label label-blue">Distribution</div>
+        <h2 class="slide-title">Plugins &mdash; Package &amp; Share</h2>
+        <p class="slide-subtitle">Bundle skills, agents, hooks, MCP, and LSP into installable, versioned packages.</p>
+      </div>
+      <div class="slide-body">
+        <div class="grid-2">
+          <div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-blue"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="2" fill="#0061FF"/></svg></div>
+              <h3>Plugin Structure</h3>
+              <p>A directory with a manifest and any combination of components. Skills are namespaced: <code class="cmp-code">/plugin:skill</code>.</p>
+            </div>
+            <div class="card" style="margin-bottom:12px">
+              <div class="card-icon icon-cyan"><svg viewBox="0 0 20 20"><polygon points="10,1 17.66,5.5 17.66,14.5 10,19 2.34,14.5 2.34,5.5" fill="#00C5E7"/></svg></div>
+              <h3>Official Marketplace</h3>
+              <p>Built-in catalog with ready-to-use plugins: <strong>github</strong>, <strong>figma</strong>, <strong>slack</strong>, <strong>linear</strong>, <strong>sentry</strong>, <strong>typescript-lsp</strong>, <strong>commit-commands</strong>, and more.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon icon-pine"><svg viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18" fill="#00434C"/></svg></div>
+              <h3>Standalone &rarr; Plugin</h3>
+              <p>Start with <code class="cmp-code">.claude/</code> for quick iteration. Convert to a plugin when you are ready to share with the team or community.</p>
+            </div>
+          </div>
+          <div>
+            <div class="code-block">
+<span class="cm"># Plugin directory structure</span><br>
+my-plugin/<br>
+&nbsp;&nbsp;<span class="kw">.claude-plugin/</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;plugin.json&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># manifest</span><br>
+&nbsp;&nbsp;<span class="kw">skills/</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># SKILL.md files</span><br>
+&nbsp;&nbsp;<span class="kw">agents/</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># agent definitions</span><br>
+&nbsp;&nbsp;<span class="kw">hooks/</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># hooks.json</span><br>
+&nbsp;&nbsp;<span class="kw">.mcp.json</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># MCP servers</span><br>
+&nbsp;&nbsp;<span class="kw">.lsp.json</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># LSP servers</span><br>
+<br>
+<span class="cm"># Install from marketplace</span><br>
+<span class="pr">&gt;</span> /plugin install github@claude-plugins-official<br>
+<br>
+<span class="cm"># Test locally during development</span><br>
+<span class="pr">$</span> claude --plugin-dir ./my-plugin<br>
+<br>
+<span class="cm"># Browse &amp; manage</span><br>
+<span class="pr">&gt;</span> /plugin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># open plugin manager</span><br>
+<span class="pr">&gt;</span> /reload-plugins&nbsp;&nbsp;<span class="cm"># hot-reload changes</span>
+            </div>
+            <div class="hint-bar" style="margin-top:10px">
+              <a href="https://code.claude.com/docs/en/plugins" target="_blank" class="hint-link">Full docs &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide bg-offwhite particles-blue-tr" data-title="Ecosystem">
+      <div class="slide-header">
+        <div class="slide-label label-blue">Ecosystem</div>
+        <h2 class="slide-title">The Extensibility Spectrum</h2>
+        <p class="slide-subtitle">From project setup to autonomous delegation &mdash; pick the right level.</p>
+      </div>
+      <div class="slide-body">
+        <div class="spectrum-labels">
+          <div class="spectrum-label spectrum-label-blue">Project Setup</div>
+          <div class="spectrum-label spectrum-label-cyan">Add Capabilities</div>
+          <div class="spectrum-label spectrum-label-navy">Delegate Work</div>
+        </div>
+        <div class="spectrum-row">
+          <div class="spectrum-card">
+            <div class="spectrum-card-icon icon-blue"><svg viewBox="0 0 20 20"><rect x="4" y="4" width="12" height="12" rx="1" fill="#0061FF"/></svg></div>
+            <div class="spectrum-card-body">
+              <h3>CLAUDE.md</h3>
+              <p>Project instructions and conventions. Auto-loaded every session, survives compaction. Team-shared via git.</p>
+              <span class="spectrum-tag spectrum-tag-det">Static</span>
+              <span class="spectrum-config">/init &middot; .claude/rules/</span>
+            </div>
+          </div>
+          <div class="spectrum-arrow">&#10140;</div>
+          <div class="spectrum-card">
+            <div class="spectrum-card-icon icon-cyan"><svg viewBox="0 0 20 20"><polygon points="10,1 17.66,5.5 17.66,14.5 10,19 2.34,14.5 2.34,5.5" fill="#00C5E7"/></svg></div>
+            <div class="spectrum-card-body">
+              <h3>MCP Servers</h3>
+              <p>Open protocol for external tools &mdash; Figma, Slack, DBs, browsers. Four transports: stdio, HTTP, SSE, WebSocket.</p>
+              <span class="spectrum-tag spectrum-tag-ai">AI-driven</span>
+              <span class="spectrum-config">.mcp.json &middot; claude mcp add</span>
+            </div>
+          </div>
+          <div class="spectrum-arrow">&#10140;</div>
+          <div class="spectrum-card">
+            <div class="spectrum-card-icon icon-blue"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#0061FF"/></svg></div>
+            <div class="spectrum-card-body">
+              <h3>Sub-agents</h3>
+              <p>Child Claude instances with custom tools, models, and permissions. Foreground or background. One-way delegation.</p>
+              <span class="spectrum-tag spectrum-tag-ai">AI-driven</span>
+              <span class="spectrum-config">.claude/agents/ &middot; /agents</span>
+            </div>
+          </div>
+        </div>
+        <div class="spectrum-row">
+          <div class="spectrum-card">
+            <div class="spectrum-card-icon icon-pine"><svg viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18" fill="#00434C"/></svg></div>
+            <div class="spectrum-card-body">
+              <h3>Hooks</h3>
+              <p>Shell, HTTP, or LLM handlers at 25 lifecycle events. Gate, validate, auto-format deterministically.</p>
+              <span class="spectrum-tag spectrum-tag-det">Deterministic</span>
+              <span class="spectrum-config">settings.json &middot; /hooks</span>
+            </div>
+          </div>
+          <div class="spectrum-arrow">&#10140;</div>
+          <div class="spectrum-card">
+            <div class="spectrum-card-icon icon-blue"><svg viewBox="0 0 20 20"><polygon points="10,1 19,7.5 16,18 4,18 1,7.5" fill="#0061FF"/></svg></div>
+            <div class="spectrum-card-body">
+              <h3>Skills</h3>
+              <p>Prompt templates via <code class="cmp-code">/name</code> or auto-loaded. Shell preprocessing and subagent isolation.</p>
+              <span class="spectrum-tag spectrum-tag-ai">AI-driven</span>
+              <span class="spectrum-config">.claude/skills/ &middot; SKILL.md</span>
+            </div>
+          </div>
+          <div class="spectrum-arrow">&#10140;</div>
+          <div class="spectrum-card">
+            <div class="spectrum-card-icon icon-cyan"><svg viewBox="0 0 20 20"><polygon points="10,2 18,7 18,14 10,19 2,14 2,7" fill="#02043B"/></svg></div>
+            <div class="spectrum-card-body">
+              <h3>Agent Teams</h3>
+              <p>Full sessions that self-coordinate via shared tasks and direct messaging. 3&ndash;5 teammates recommended.</p>
+              <span class="spectrum-tag spectrum-tag-ai">AI-driven</span>
+              <span class="spectrum-config">Experimental &middot; env flag</span>
+            </div>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <div class="pro-tip-icon"><svg viewBox="0 0 28 28"><rect x="4" y="4" width="20" height="20" rx="3" fill="#CCF87D"/><rect x="8" y="8" width="12" height="12" rx="2" fill="#02043B"/></svg></div>
+          <div>
+            <div class="pro-tip-title">Plugins &mdash; shareable bundles</div>
+            <div class="pro-tip-text">Package any combination of skills, agents, hooks, MCP, and LSP into one installable unit.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -850,7 +1026,7 @@ Commit: <span class="str">!`git log -1 --oneline`</span>
 
 <script>
 // Injected from config.json
-const PROMPTS = ["Claude Code: AI-powered coding assistant. Reads your codebase, edits files, runs commands, integrates with dev tools. Available on Terminal, VS Code, JetBrains, Desktop, Web, Chrome.","Key commands: /init, /config, /compact, /resume, ! for shell. Review: /review, /code-review, /btw, /stats, /insights.","CLAUDE.md is the project config — tech stack, conventions, commands. CLAUDE.local.md is for personal overrides. Run /init to auto-generate.","MCP connects Claude to external tools. At Talon.One: Figma for designs, Shortcut for project tracking, Slack for team communication. 50+ integrations available.","Skills are reusable slash-command templates. Bundled: /batch, /simplify, /debug, /loop, /claude-api.","Custom skills: create SKILL.md with frontmatter for name, description, invocation control. Supports dynamic context injection, subagent execution, and file-scoped activation.","Sub-agents run in parallel: Explore for fast codebase search, Plan for architecture design, General Purpose for complex multi-step tasks.","Hooks are deterministic shell commands that run at lifecycle events: auto-format after edits, block protected files, send notifications, validate commands. Three types: command, prompt, agent.","Agent teams: multiple Claude instances coordinating via shared task list and direct messaging. Best for parallel review, competing hypotheses, cross-layer changes. Experimental, higher token cost.","Chrome extension enables browser automation via MCP — navigate, click, fill forms, take screenshots, read console logs.","Thank you! Install: npm i -g @anthropic-ai/claude-code. Docs: code.claude.com/docs. Run claude then /init to get started."];
+const PROMPTS = ["Claude Code: AI-powered coding assistant. Reads your codebase, edits files, runs commands, integrates with dev tools. Available on Terminal, VS Code, JetBrains, Desktop, Web, Chrome.","Key commands: /init, /config, /compact, /resume, ! for shell. Review: /review, /code-review, /btw, /stats, /insights.","CLAUDE.md is the project config — tech stack, conventions, commands. CLAUDE.local.md is for personal overrides. Run /init to auto-generate.","Hooks are deterministic shell commands that run at lifecycle events: auto-format after edits, block protected files, send notifications, validate commands. Three types: command, prompt, agent.","MCP connects Claude to external tools. At Talon.One: Figma for designs, Shortcut for project tracking, Slack for team communication. 50+ integrations available.","Skills are reusable slash-command templates. Bundled: /batch, /simplify, /debug, /loop, /claude-api.","Custom skills: create SKILL.md with frontmatter for name, description, invocation control. Supports dynamic context injection, subagent execution, and file-scoped activation.","Sub-agents run in parallel: Explore for fast codebase search, Plan for architecture design, General Purpose for complex multi-step tasks.","Agent teams: multiple Claude instances coordinating via shared task list and direct messaging. Best for parallel review, competing hypotheses, cross-layer changes. Experimental, higher token cost.","Plugins bundle skills, agents, hooks, MCP, and LSP into shareable packages. Install from the official marketplace with /plugin install name@claude-plugins-official. Test locally with --plugin-dir. Browse with /plugin, hot-reload with /reload-plugins.","The extensibility spectrum: Configure (CLAUDE.md, Hooks) → Extend (MCP, Skills) → Orchestrate (Sub-agents, Agent Teams) → Share (Plugins). Start simple, escalate only when needed.","Chrome extension enables browser automation via MCP — navigate, click, fill forms, take screenshots, read console logs.","Thank you! Install: npm i -g @anthropic-ai/claude-code. Docs: code.claude.com/docs. Run claude then /init to get started."];
 // ── State ──
 const slides = document.querySelectorAll('.slide');
 const sidebar = document.getElementById('sidebar');

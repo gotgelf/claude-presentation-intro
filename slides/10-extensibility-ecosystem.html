@@ -1,0 +1,83 @@
+    <div class="slide bg-offwhite particles-blue-tr" data-title="Ecosystem">
+      <div class="slide-header">
+        <div class="slide-label label-blue">Ecosystem</div>
+        <h2 class="slide-title">The Extensibility Spectrum</h2>
+        <p class="slide-subtitle">From project setup to autonomous delegation &mdash; pick the right level.</p>
+      </div>
+      <div class="slide-body">
+        <div class="spectrum-labels">
+          <div class="spectrum-label spectrum-label-blue">Project Setup</div>
+          <div class="spectrum-label spectrum-label-cyan">Add Capabilities</div>
+          <div class="spectrum-label spectrum-label-navy">Delegate Work</div>
+        </div>
+        <div class="spectrum-row">
+          <div class="spectrum-card">
+            <div class="spectrum-card-icon icon-blue"><svg viewBox="0 0 20 20"><rect x="4" y="4" width="12" height="12" rx="1" fill="#0061FF"/></svg></div>
+            <div class="spectrum-card-body">
+              <h3>CLAUDE.md</h3>
+              <p>Project instructions and conventions. Auto-loaded every session, survives compaction. Team-shared via git.</p>
+              <span class="spectrum-tag spectrum-tag-det">Static</span>
+              <span class="spectrum-config">/init &middot; .claude/rules/</span>
+            </div>
+          </div>
+          <div class="spectrum-arrow">&#10140;</div>
+          <div class="spectrum-card">
+            <div class="spectrum-card-icon icon-cyan"><svg viewBox="0 0 20 20"><polygon points="10,1 17.66,5.5 17.66,14.5 10,19 2.34,14.5 2.34,5.5" fill="#00C5E7"/></svg></div>
+            <div class="spectrum-card-body">
+              <h3>MCP Servers</h3>
+              <p>Open protocol for external tools &mdash; Figma, Slack, DBs, browsers. Four transports: stdio, HTTP, SSE, WebSocket.</p>
+              <span class="spectrum-tag spectrum-tag-ai">AI-driven</span>
+              <span class="spectrum-config">.mcp.json &middot; claude mcp add</span>
+            </div>
+          </div>
+          <div class="spectrum-arrow">&#10140;</div>
+          <div class="spectrum-card">
+            <div class="spectrum-card-icon icon-blue"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#0061FF"/></svg></div>
+            <div class="spectrum-card-body">
+              <h3>Sub-agents</h3>
+              <p>Child Claude instances with custom tools, models, and permissions. Foreground or background. One-way delegation.</p>
+              <span class="spectrum-tag spectrum-tag-ai">AI-driven</span>
+              <span class="spectrum-config">.claude/agents/ &middot; /agents</span>
+            </div>
+          </div>
+        </div>
+        <div class="spectrum-row">
+          <div class="spectrum-card">
+            <div class="spectrum-card-icon icon-pine"><svg viewBox="0 0 20 20"><polygon points="10,2 18,18 2,18" fill="#00434C"/></svg></div>
+            <div class="spectrum-card-body">
+              <h3>Hooks</h3>
+              <p>Shell, HTTP, or LLM handlers at 25 lifecycle events. Gate, validate, auto-format deterministically.</p>
+              <span class="spectrum-tag spectrum-tag-det">Deterministic</span>
+              <span class="spectrum-config">settings.json &middot; /hooks</span>
+            </div>
+          </div>
+          <div class="spectrum-arrow">&#10140;</div>
+          <div class="spectrum-card">
+            <div class="spectrum-card-icon icon-blue"><svg viewBox="0 0 20 20"><polygon points="10,1 19,7.5 16,18 4,18 1,7.5" fill="#0061FF"/></svg></div>
+            <div class="spectrum-card-body">
+              <h3>Skills</h3>
+              <p>Prompt templates via <code class="cmp-code">/name</code> or auto-loaded. Shell preprocessing and subagent isolation.</p>
+              <span class="spectrum-tag spectrum-tag-ai">AI-driven</span>
+              <span class="spectrum-config">.claude/skills/ &middot; SKILL.md</span>
+            </div>
+          </div>
+          <div class="spectrum-arrow">&#10140;</div>
+          <div class="spectrum-card">
+            <div class="spectrum-card-icon icon-cyan"><svg viewBox="0 0 20 20"><polygon points="10,2 18,7 18,14 10,19 2,14 2,7" fill="#02043B"/></svg></div>
+            <div class="spectrum-card-body">
+              <h3>Agent Teams</h3>
+              <p>Full sessions that self-coordinate via shared tasks and direct messaging. 3&ndash;5 teammates recommended.</p>
+              <span class="spectrum-tag spectrum-tag-ai">AI-driven</span>
+              <span class="spectrum-config">Experimental &middot; env flag</span>
+            </div>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <div class="pro-tip-icon"><svg viewBox="0 0 28 28"><rect x="4" y="4" width="20" height="20" rx="3" fill="#CCF87D"/><rect x="8" y="8" width="12" height="12" rx="2" fill="#02043B"/></svg></div>
+          <div>
+            <div class="pro-tip-title">Plugins &mdash; shareable bundles</div>
+            <div class="pro-tip-text">Package any combination of skills, agents, hooks, MCP, and LSP into one installable unit.</div>
+          </div>
+        </div>
+      </div>
+    </div>
